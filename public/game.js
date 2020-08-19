@@ -217,3 +217,5 @@ function startGame() {
 
 //Only line that executes initially
 startGame()  
+
+module.exports = game
