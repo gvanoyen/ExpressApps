@@ -69,6 +69,8 @@ body {
     margin-top: 50px;
 }
 
+
+/*Everything under here is for animating the blinking underscore*/
 .blinking-uscore {
     font-weight: 100;
     font-size: 45pt;
