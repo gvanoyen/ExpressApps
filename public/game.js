@@ -1,4 +1,4 @@
-let state = {}
+let state = {};
 
 /************Branches for text-based story***************
     for outer blocks:
@@ -172,50 +172,50 @@ function showOption(option) {
 //
 function showIf(textIndex) {
   //setting the value of the next id we jump to
-  const textNode = textOptions.find(textNode => textNode.id === textIndex)
-  textElement.innerText = textNode.text
+  const textNode = textOptions.find(textNode => textNode.id === textIndex);
+  textElement.innerText = textNode.text;
   
   //removing empty options
   while (optionButtonsElement.firstChild) {
-    optionButtonsElement.removeChild(optionButtonsElement.firstChild)
+    optionButtonsElement.removeChild(optionButtonsElement.firstChild);
   }
 
   //loop to add text to each option within the optionElement
   textNode.options.forEach(option => {
     if (showOption(option)) {
-      const optBtn = document.createElement('optBtn')
+      const optBtn = document.createElement('optBtn');
       //set text
-      optBtn.innerText = option.text
+      optBtn.innerText = option.text;
       //look for clicks on button
-      optBtn.addEventListener('click', () => selectOption(option))
-      optBtn.classList.add('btn')
-      optionButtonsElement.appendChild(optBtn)
+      optBtn.addEventListener('click', () => selectOption(option));
+      optBtn.classList.add('btn');
+      optionButtonsElement.appendChild(optBtn);
     }
-  })
+  });
 }
 
 //sets the state of new/existing items and moves to the selected id
 function selectOption(option) {
-  const nextTextId = option.nextText
+  const nextTextId = option.nextText;
 
   //typically use -1 to show game over, but ID could be 0 or less
   if (nextTextId <= 0) {
-    return startGame()
+    return startGame();
   }
 
   //set the state to all current states plus the new state
-  state = Object.assign(state, option.setState)
-  showIf(nextTextId)
+  state = Object.assign(state, option.setState);
+  showIf(nextTextId);
 }
 
 function startGame() {
   //initialize state
-  state = {}
+  state = {};
   //Start at text id 1 
-  showIf(1)
+  showIf(1);
 }
 
 //Only line that executes initially
-startGame()  
+startGame();
 
-module.exports = game
+module.exports = game;
