@@ -32,8 +32,8 @@ const textOptions = [
         nextText: 4
       },
       {
-        text: ' ',
-        requiredState: (currentState) => (currentState.candleLight && currentState.initiative),
+        text: 'Your Wisdom attribute gives you a +5 modifier and you can feel something big is going on. You grab your staff and wizard robes.',
+        requiredState: (currentState) => (currentState.candleLight && currentState.initiative && currentState.fireball),
         nextText: 3
       }
     ]
@@ -78,6 +78,10 @@ const textOptions = [
       {
         text: 'Answer the door.',
         nextText: 3
+      },
+      {
+        text: 'Try Candlelight again',
+        nextText: 11
       }
     ]
   },
@@ -111,62 +115,147 @@ const textOptions = [
   },
   {
     id: 7,
-    text: 'Placeholder text',
+    text: '"Right. I`ve got reasonable people to save." He closes the door and you can hear him run away. A short time passes while you contemplate what he meant by "Zombie Apocalypse" and you hear another knock at the door.',
     options: [
       {
-        text: 'Placeholder text',
-        nextText: 8
-      },
-      {
-        text: 'Placeholder text',
-        nextText: 9
-      },
-      {
-        text: 'Placeholder text',
-        nextText: 10
-      },
-      {
-        text: 'Placeholder text',
-        nextText: 11
+        text: 'Answer the door.',
+        nextText: 3
       }
     ]
   },
   {
     id: 8,
-    text: 'Placeholder text',
+    text: '"You`re the asshole that`s going to get us all killed." Rob says while staring down the hallway. From the other direction, a hand enters the door frame he`s standing in and it pulls him back. Rob`s screams echo off the dead monitors in the room. Until you hear tearing and his screams stop.',
     options: [
       {
-        text: 'Restart',
-        nextText: -1
+        text: 'Look out into the hallway.',
+        nextText: 12
+      },
+      {
+        text: 'Hide under the desk.',
+        nextText: 13
       }
     ]
   },
   {
     id: 9,
-    text: 'Placeholder text',
+    text: '"Holy shit, yes! Let`s get out of here." Rob turns away from the room and you follow him out. As you two run down the hall, more screams can be heard from all sides. Both of you stop running. Several dead bodies lay in pools of blood and skin, like someone had opened a purse and dumped out the contents while looking for something. You and Rob both see one of the bodies move and he pushes you down. "Sorry!" He says, as he runs off.',
     options: [
       {
-        text: 'Restart',
-        nextText: -1
+        text: 'You are the next body turned into an emptied purse. The bodies were dead, but now they aren`t. There are more screams and several thuds off in the distance.',
+        nextText: 1
       }
     ]
   },
   {
     id: 10,
-    text: 'Placeholder text',
+    text: 'While you`re trying to calculate your racial bonuses in your head, bloody fingernails dig into your eyes.',
     options: [
       {
-        text: 'Restart',
-        nextText: -1
+        text: 'Scream, fall to the floor and die at the hands of the creature. Before you do, you can hear tapping coming from somewhere.',
+        nextText: 1
       }
     ]
   },
   {
     id: 11,
-    text: 'Placeholder text',
+    text: 'Really?',
     options: [
       {
-        text: 'Congratulations. Play Again?',
+        text: 'Yes',
+        nextText: 16
+      },
+      {
+        text: 'No',
+        nextText: 17
+      }
+    ]
+  },
+  {
+    id: 12,
+    text: 'Two figures are out in the hallway. One is Rob, a now faceless mass on the floor, and the other is slightly hunched and grabbing at the remaining chunks on Rob`s face.',
+    options: [
+      {
+        text: 'Prepare Fireball for 2d6 worth of damage.',
+        setState: {fireball: true},
+        nextText: 14
+      },
+      {
+        text: 'Turn around and go back into the room.',
+        nextText: 15
+      }
+    ]
+  },
+  {
+    id: 13,
+    text: 'Quickly shuffling over to the desk, you think you`ve made as little noise as possible. You take the chance to look around for anything useful, but this is the computer science lab, only useful for LAN parties and occasional learning. The smell consumes you before you can grab anything to help you. A cold, wet hand grabs from behind and turns you around. The figure is clearly already dead and hungers for your soft internal organs.',
+    options: [
+      {
+        text: 'Your fingers are removed piece by piece like someone would take a popsicle off a stick. As you pass out from shock, there`s a noise like fingers hitting wood.',
+        nextText: 1
+      }
+    ]
+  },
+  {
+    id: 14,
+    text: 'This is not Dungeons and Dragons. You rub your hands together like a moron but all you`ve done is slightly heat them up for the figure in front of you to have a nice warm snack.',
+    options: [
+      {
+        text: 'Your hands are eaten while you watch. You`re not sure, but you think you hear something as you pass out.',
+        nextText: 1
+      }
+    ]
+  },
+  {
+    id: 15,
+    text: 'As you turn to go back into the room, you`re grabbed by the figure and the soft flesh at the base of your neck is removed by its teeth. ',
+    options: [
+      {
+        text: 'Fall to the ground but hear a noise...',
+        nextText: 1
+      },
+    ]
+  },
+  {
+    id: 16,
+    text: 'A light appears above you. You look around and see Rob at the door, hand on the light switch. "Oops, my bad. Go back to sleep."',
+    options: [
+      {
+        text: 'You throw your head back onto the couch with a thud.',
+        nextText: 1
+      }
+    ]
+  },
+  {
+    id: 17,
+    text: 'Smart choice.',
+    options: [
+      {
+        text: 'Walk over to your computer and wiggle the mouse.',
+        nextText: 2
+      },
+      {
+        text: 'Answer the door.',
+        nextText: 3
+      }
+    ]
+  },
+  {
+    id: 18,
+    text: 'Just as you get everything on and in your possession, the door bursts open and several undead appear.',
+    options: [
+      {
+        text: 'Blast them with Fireball',
+        nextText: 19
+      }
+    ]
+  },
+  {
+    id: 19,
+    text: 'They explode in a satisfyingly meaty way. You are hailed as the hero of the school and given a parade in your honour. After a long couple days of celebration, you lay down for a nap...',
+    options: [
+      {
+        text: '       ',
         nextText: -1
       }
     ]
