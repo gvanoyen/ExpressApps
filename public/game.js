@@ -16,81 +16,96 @@ let state = {};
 const textOptions = [
   {
     id: 1,
-    text: 'You wake up on the computer science lab couch with no recollection of how you got there.  You hear a scream in the hall.',
+    text: 'A knock at the door wakes you up from your nap in the computer science room. You think it was a knock but you were in a pretty deep sleep. It`s dark out and you don`t remember what you were doing when you crashed on the couch. ',
     options: [
       {
-        text: 'Hide under a desk',
+        text: 'Walk over to your computer and wiggle the mouse.',
         nextText: 2
       },
       {
-        text: 'Run into the hall',
-        nextText: 2
+        text: 'Answer the door.',
+        nextText: 3
+      },
+      {
+        text: 'Cast Candlelight for 1d4 meters of light.',
+        setState: {candleLight: true},
+        nextText: 4
+      },
+      {
+        text: ' ',
+        requiredState: (currentState) => (currentState.candleLight && currentState.initiative),
+        nextText: 3
       }
     ]
   },
   {
     id: 2,
-    text: 'Placeholder text',
+    text: 'The mouse sits in all its RGB glory, just waiting to be moved and spring to life. You move it, but nothing happens. You go to hit the power button and an increasingly worried knock comes from the door.',
     options: [
       {
-        text: 'Placeholder text',
+        text: 'Answer the door.',
         nextText: 3
       },
       {
-        text: 'Placeholder text',
-        nextText: 3
-      },
-      {
-        text: 'Placeholder text',
-        nextText: 3
+        text: 'Push the power button',
+        nextText: 5
       }
     ]
   },
   {
     id: 3,
-    text: 'Placeholder text',
+    text: 'The door is opened by turning the knob. A face stares back at you from the dim hallway but that`s all you register before the smell hits you. This is death in physical form, or the guy from residence that`s infamous for not showering or washing his clothes. Is it both of those things? Your attention snaps back to the face again; hanging, almost oozing off the bone in places. ',
     options: [
       {
-        text: 'Placeholder text',
-        nextText: 4
-      },
-      {
-        text: 'Placeholder text',
-        nextText: 5
-      },
-      {
-        text: 'Placeholder text',
+        text: 'Scream',
         nextText: 6
+      },
+      {
+        text: 'Roll for initiative.',
+        setState: {initiative: true},
+        nextText: 8
       }
     ]
   },
   {
     id: 4,
-    text: 'Placeholder text',
+    text: 'That`s not even a real DnD spell. And you woke up from your nap; this is the real world. You give yourself a shake and reassess your choices.',
     options: [
       {
-        text: 'Restart',
-        nextText: -1
+        text: 'Walk over to your computer and wiggle the mouse.',
+        nextText: 2
+      },
+      {
+        text: 'Answer the door.',
+        nextText: 3
       }
     ]
   },
   {
     id: 5,
-    text: 'Placeholder text',
+    text: 'The computer does not flicker to life as expected. The door bursts open as a scream from further down the hallway can be heard. Rob is in the doorway. "Are you really trying to play Rocket League during the beginning of the zombie apocalypse?"',
     options: [
       {
-        text: 'Restart',
-        nextText: -1
+        text: '"Yes"',
+        nextText: 7
+      },
+      {
+        text: '"Maybe"',
+        nextText: 8
+      },
+      {
+        text: '"Zombie Apocalypse?"',
+        nextText: 9
       }
     ]
   },
   {
     id: 6,
-    text: 'Placeholder text',
+    text: 'The stinky guy`s eyes register you for the first time and he opens what`s left of his mouth to devour you.',
     options: [
       {
-        text: 'Placeholder text',
-        nextText: 7
+        text: 'You hear a noise',
+        nextText: 1
       }
     ]
   },
