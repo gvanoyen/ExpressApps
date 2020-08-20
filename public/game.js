@@ -34,7 +34,7 @@ const textOptions = [
       {
         text: 'Your Wisdom attribute gives you a +5 modifier and you can feel something big is going on. You grab your staff and wizard robes.',
         requiredState: (currentState) => (currentState.candleLight && currentState.initiative && currentState.fireball),
-        nextText: 3
+        nextText: 18
       }
     ]
   },
@@ -63,7 +63,7 @@ const textOptions = [
       {
         text: 'Roll for initiative.',
         setState: {initiative: true},
-        nextText: 8
+        nextText: 10
       }
     ]
   },
